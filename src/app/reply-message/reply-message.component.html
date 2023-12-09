@@ -1,0 +1,43 @@
+<div class="px-5">
+  <form class="example-form" [formGroup]="editMessageForm">
+    <div>
+      <p class="text-xl font-bold py-2 ml-52 mb-2" style='margin-left:40%'>Reply Message</p>
+    </div>
+
+    <div class="flex justify-between" style="margin-left:10px">
+      <div>
+        <p class="flex items-center justify-between">
+          UserId
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>UserId</mat-label>
+            <input matInput formControlName="user_id" />
+          </mat-form-field>
+        </p>
+        <p class="flex items-center justify-between">
+          Body      
+          <mat-form-field class="example-full-width" appearance="outline" style="margin-left: 2%">
+            <mat-label> Body</mat-label>
+            <input matInput formControlName="message_body" />
+          </mat-form-field>
+        </p>
+
+        <p class="flex items-center justify-between">
+          Reply:    
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Reply</mat-label>
+            <input matInput formControlName="reply" />
+          </mat-form-field>
+        </p>
+      </div>
+    </div>
+
+    <div class="flex justify-between">
+      <button
+        (click)="submit()"
+        class="bg_color text-white font-bold py-2 px-4 mt-4 rounded align-start"
+      >
+        <span *ngIf="!loading">submit</span>
+      </button>
+    </div>
+  </form>
+</div>

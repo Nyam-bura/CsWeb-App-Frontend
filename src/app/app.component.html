@@ -1,43 +1,54 @@
+
+<mat-toolbar color="primary">
+  <span>Agents Portal</span>
+</mat-toolbar>
 <mat-form-field appearance="standard">
-  <mat-label>Filter Table</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+  <mat-label>Search Message</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input />
 </mat-form-field>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
-
-    <!-- ID Column -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{ row.id }}</td>
     </ng-container>
 
-    <!-- Progress Column -->
-    <ng-container matColumnDef="userId">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> userId </th>
-      <td mat-cell *matCellDef="let row"> {{row.userId}} </td>
+    <ng-container matColumnDef="user_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>UserId</th>
+      <td mat-cell *matCellDef="let row">{{ row.user_id }}</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> title </th>
-      <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+    <ng-container matColumnDef="timestamp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Timestamp</th>
+      <td mat-cell *matCellDef="let row">{{ row.timestamp }}</td>
     </ng-container>
 
-    <!-- Fruit Column -->
-    <ng-container matColumnDef="body">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> body </th>
-      <td mat-cell *matCellDef="let row"> {{row.body}} </td>
+    <ng-container matColumnDef="message_body">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Message Body</th>
+      <td mat-cell *matCellDef="let row">{{ row.message_body }}</td>
     </ng-container>
-
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Reply</th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-raised-button color="primary" (click)="updateMessage(row.id)">Reply</button>
+      </td>
+    </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
     <!-- Row shown when there is no matching data. -->
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-    </tr>
+      <td class="mat-cell" colspan="4">
+        No data matching the filter "{{input.value }}"
+      </td>
+    </tr> 
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
 </div>
+<br><br><br><br>
+ <app-reply-message></app-reply-message> 

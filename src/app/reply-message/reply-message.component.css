@@ -1,0 +1,45 @@
+/* Apply padding to the outer container */
+.px-5 {
+    padding: 0 1.25rem; 
+  }
+  
+  .example-form {
+    width: 30%;
+    height: 400px;
+    border-radius: 10px;
+    margin-left: 20%;
+  }
+  
+  .example-form p.text-xl {
+    font-size: 1.25rem; 
+    font-weight: bold;
+    padding-top: 0.5rem;
+    margin-left: 8.35rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .example-form .flex {
+    display: flex;
+    margin-left: 10px;
+    justify-content: space-around;
+  }
+  
+  .example-form .flex input {
+    width: 100%; 
+  }
+  
+  .example-form button {
+    background-color: rgb(0, 119, 255); 
+    color: #ffffff; 
+    font-weight: bold;
+    margin-left: 30%;
+    padding: 0.5rem 1rem; 
+    border: none;
+    border-radius: 0.25rem; 
+  }
+  
+  .example-form button:hover {
+    cursor: pointer;
+    filter: brightness(1.2); 
+  }
+  
